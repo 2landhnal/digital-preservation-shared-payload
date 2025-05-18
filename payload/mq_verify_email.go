@@ -1,4 +1,4 @@
-package sharedpayload
+package payload
 
 // Payload Verify Email
 type PayloadVerifyEmail struct {
