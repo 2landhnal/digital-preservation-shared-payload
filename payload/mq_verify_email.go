@@ -7,9 +7,9 @@ type PayloadVerifyEmail struct {
 
 // Payload step upload file
 type PayloadStepUploadFile struct {
-	Object_id      string `json:"object_id"`
-	Uploader_email string `json:"uploader_email"`
-	Folder_id      string `json:"folder_id"`
-	Original_name  string `json:"original_name"`
-	Storage_path   string `json:"storage_path"`
+	ObjectId      string `json:"object_id"`
+	UploaderEmail string `json:"uploader_email"`
+	FolderId      string `json:"folder_id"`
+	OriginalName  string `json:"original_name"`
+	StoragePath   string `json:"storage_path"`
 }

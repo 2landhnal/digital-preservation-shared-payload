@@ -47,7 +47,8 @@ type Config struct {
 	MQAddress              []string         `mapstructure:"MQ_ADDRESS"`
 	MQTopics               map[string]Topic `mapstructure:"MQ_TOPICS"`
 	MQTopicVerifyEmail     string           `mapstructure:"MQ_TOPIC_VERIFY_EMAIL"`
-	MQTopicUploadFile      string           `mapstructure:"MQ_TOPIC_VERIFY_EMAIL"`
+	MQTopicScanViruss      string           `mapstructure:"MQ_TOPIC_SCAN_VIRUSS"`
+	MQTopicExtractMetadata string           `mapstructure:"MQ_TOPIC_EXTRACT_METADATA"`
 	S3Config               S3Config         `mapstructure:"S3_CONFIG"`
 	TmpFolderPath          string           `mapstructure:"TMP_FOLDER_PATH"`
 }
