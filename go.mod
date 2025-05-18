@@ -3,6 +3,7 @@ module github.com/2landhnal/digital-preservation-shared-payload
 go 1.24.2
 
 require (
+	github.com/google/uuid v1.6.0
 	github.com/spf13/viper v1.20.1
 	github.com/stretchr/testify v1.10.0
 	golang.org/x/crypto v0.38.0
