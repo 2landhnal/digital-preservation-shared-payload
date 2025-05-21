@@ -28,6 +28,7 @@ type ServiceConfig struct {
 type Config struct {
 	Environment            string           `mapstructure:"ENVIRONMENT"`
 	DBSource               string           `mapstructure:"DB_SOURCE"`
+	MongoDBSource          string           `mapstructure:"MONGO_DB_SOURCE"`
 	HttpPort               int              `mapstructure:"HTTP_PORT"`
 	GrpcPort               int              `mapstructure:"GRPC_PORT"`
 	CollectSerivce         ServiceConfig    `mapstructure:"COLLECT_SERVICE"`
