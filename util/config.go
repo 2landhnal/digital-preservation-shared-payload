@@ -25,10 +25,16 @@ type ServiceConfig struct {
 	GRPCServerPort int    `mapstructure:"GRPC_SERVER_PORT"`
 }
 
+type NoSQLConfig struct {
+	ServerAddress  string `mapstructure:"SERVER_ADDRESS"`
+	Database       int    `mapstructure:"DATABASE"`
+	UserCollection int    `mapstructure:"USER_COLLECTION"`
+}
+
 type Config struct {
 	Environment            string           `mapstructure:"ENVIRONMENT"`
 	DBSource               string           `mapstructure:"DB_SOURCE"`
-	MongoDBSource          string           `mapstructure:"MONGO_DB_SOURCE"`
+	MongoDBConfig          NoSQLConfig      `mapstructure:"MONGO_DB_CONFIG"`
 	HttpPort               int              `mapstructure:"HTTP_PORT"`
 	GrpcPort               int              `mapstructure:"GRPC_PORT"`
 	CollectSerivce         ServiceConfig    `mapstructure:"COLLECT_SERVICE"`
@@ -50,6 +56,7 @@ type Config struct {
 	MQTopicVerifyEmail     string           `mapstructure:"MQ_TOPIC_VERIFY_EMAIL"`
 	MQTopicScanViruss      string           `mapstructure:"MQ_TOPIC_SCAN_VIRUSS"`
 	MQTopicExtractMetadata string           `mapstructure:"MQ_TOPIC_EXTRACT_METADATA"`
+	MQTopicDebeziumUser    string           `mapstructure:"MQ_TOPIC_DEBEZIUM_USER"`
 	S3Config               S3Config         `mapstructure:"S3_CONFIG"`
 	TmpFolderPath          string           `mapstructure:"TMP_FOLDER_PATH"`
 }
