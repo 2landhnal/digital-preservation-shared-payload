@@ -27,8 +27,8 @@ type ServiceConfig struct {
 
 type NoSQLConfig struct {
 	ServerAddress  string `mapstructure:"SERVER_ADDRESS"`
-	Database       int    `mapstructure:"DATABASE"`
-	UserCollection int    `mapstructure:"USER_COLLECTION"`
+	Database       string `mapstructure:"DATABASE"`
+	UserCollection string `mapstructure:"USER_COLLECTION"`
 }
 
 type Config struct {
