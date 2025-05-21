@@ -26,9 +26,25 @@ type ServiceConfig struct {
 }
 
 type NoSQLConfig struct {
-	ServerAddress  string `mapstructure:"SERVER_ADDRESS"`
-	Database       string `mapstructure:"DATABASE"`
-	UserCollection string `mapstructure:"USER_COLLECTION"`
+	ServerAddress                   string `mapstructure:"SERVER_ADDRESS"`
+	Database                        string `mapstructure:"DATABASE"`
+	UserCollection                  string `mapstructure:"USER_COLLECTION"`
+	VerifyEmailCollection           string `mapstructure:"VERIFY_EMAIL_COLLECTION"`
+	SessionCollection               string `mapstructure:"SESSION_COLLECTION"`
+	TmpObjectCollection             string `mapstructure:"TMP_OBJECT_COLLECTION"`
+	ObjectCollection                string `mapstructure:"OBJECT_COLLECTION"`
+	ObjectPermissionCollection      string `mapstructure:"OBJECT_PERMISSION_COLLECTION"`
+	FolderPermissionCollection      string `mapstructure:"FOLDER_PERMISSION_COLLECTION"`
+	ObjectRelationshipCollection    string `mapstructure:"OBJECT_RELATIONSHIP_COLLECTION"`
+	FolderCollection                string `mapstructure:"FOLDER_COLLECTION"`
+	EventCollection                 string `mapstructure:"EVENT_COLLECTION"`
+	AgentCollection                 string `mapstructure:"AGENT_COLLECTION"`
+	RightCollection                 string `mapstructure:"RIGHT_COLLECTION"`
+	GroupCollection                 string `mapstructure:"GROUP_COLLECTION"`
+	VirusScanResultCollection       string `mapstructure:"VIRUS_SCAN_RESULT_COLLECTION"`
+	ExtractMetadataResultCollection string `mapstructure:"EXTRACT_METADATA_RESULT_COLLECTION"`
+	EventObjectCollection           string `mapstructure:"EVENT_OBJECT_COLLECTION"`
+	GroupUserCollection             string `mapstructure:"GROUP_USER_COLLECTION"`
 }
 
 type Config struct {
@@ -56,9 +72,28 @@ type Config struct {
 	MQTopicVerifyEmail     string           `mapstructure:"MQ_TOPIC_VERIFY_EMAIL"`
 	MQTopicScanViruss      string           `mapstructure:"MQ_TOPIC_SCAN_VIRUSS"`
 	MQTopicExtractMetadata string           `mapstructure:"MQ_TOPIC_EXTRACT_METADATA"`
-	MQTopicDebeziumUser    string           `mapstructure:"MQ_TOPIC_DEBEZIUM_USER"`
-	S3Config               S3Config         `mapstructure:"S3_CONFIG"`
-	TmpFolderPath          string           `mapstructure:"TMP_FOLDER_PATH"`
+
+	MQTopicDebeziumReplicateConfig       string `mapstructure:"MQ_TOPIC_DEBEZIUM_REPLICATE_CONFIG"`
+	MQTopicDebeziumUser                  string `mapstructure:"MQ_TOPIC_DEBEZIUM_USER"`
+	MQTopicDebeziumVerifyEmail           string `mapstructure:"MQ_TOPIC_DEBEZIUM_VERIFY_EMAIL"`
+	MQTopicDebeziumSession               string `mapstructure:"MQ_TOPIC_DEBEZIUM_SESSION"`
+	MQTopicDebeziumTmpObject             string `mapstructure:"MQ_TOPIC_DEBEZIUM_TMP_OBJECT"`
+	MQTopicDebeziumObject                string `mapstructure:"MQ_TOPIC_DEBEZIUM_OBJECT"`
+	MQTopicDebeziumObjectPermission      string `mapstructure:"MQ_TOPIC_DEBEZIUM_OBJECT_PERMISSION"`
+	MQTopicDebeziumFolderPermission      string `mapstructure:"MQ_TOPIC_DEBEZIUM_FOLDER_PERMISSION"`
+	MQTopicDebeziumObjectRelationship    string `mapstructure:"MQ_TOPIC_DEBEZIUM_OBJECT_RELATIONSHIP"`
+	MQTopicDebeziumFolder                string `mapstructure:"MQ_TOPIC_DEBEZIUM_FOLDER"`
+	MQTopicDebeziumEvent                 string `mapstructure:"MQ_TOPIC_DEBEZIUM_EVENT"`
+	MQTopicDebeziumAgent                 string `mapstructure:"MQ_TOPIC_DEBEZIUM_AGENT"`
+	MQTopicDebeziumRight                 string `mapstructure:"MQ_TOPIC_DEBEZIUM_RIGHT"`
+	MQTopicDebeziumGroup                 string `mapstructure:"MQ_TOPIC_DEBEZIUM_GROUP"`
+	MQTopicDebeziumVirusScanResult       string `mapstructure:"MQ_TOPIC_DEBEZIUM_VIRUS_SCAN_RESULT"`
+	MQTopicDebeziumExtractMetadataResult string `mapstructure:"MQ_TOPIC_DEBEZIUM_EXTRACT_METADATA_RESULT"`
+	MQTopicDebeziumEventObject           string `mapstructure:"MQ_TOPIC_DEBEZIUM_EVENT_OBJECT"`
+	MQTopicDebeziumGroupUser             string `mapstructure:"MQ_TOPIC_DEBEZIUM_GROUP_USER"`
+
+	S3Config      S3Config `mapstructure:"S3_CONFIG"`
+	TmpFolderPath string   `mapstructure:"TMP_FOLDER_PATH"`
 }
 
 func LoadConfig(path string, config *Config) (err error) {
