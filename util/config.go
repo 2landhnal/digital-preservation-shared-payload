@@ -19,6 +19,11 @@ type S3Config struct {
 	Bucket    string `mapstructure:"BUCKET"`
 }
 
+type OAuthConfig struct {
+	AccessKey string `mapstructure:"ACCESS_KEY_ID"`
+	SecretKey string `mapstructure:"SECRET_ACCESS_KEY"`
+}
+
 type ServiceConfig struct {
 	ServerAddress  string `mapstructure:"SERVER_ADDRESS"`
 	HTTPServerPort int    `mapstructure:"HTTP_SERVER_PORT"`
@@ -72,6 +77,15 @@ type Config struct {
 	MQTopicVerifyEmail     string           `mapstructure:"MQ_TOPIC_VERIFY_EMAIL"`
 	MQTopicScanViruss      string           `mapstructure:"MQ_TOPIC_SCAN_VIRUSS"`
 	MQTopicExtractMetadata string           `mapstructure:"MQ_TOPIC_EXTRACT_METADATA"`
+
+	OAuths            map[string]OAuthConfig `mapstructure:"OAUTH_CONFIGS"`
+	OAuthKeyGoogle    string                 `mapstructure:"OAUTH_GOOGLE"`
+	OAuthKeyDiscord   string                 `mapstructure:"OAUTH_DISCORD"`
+	OAuthKeyFacebook  string                 `mapstructure:"OAUTH_FACEBOOK"`
+	OAuthKeyGithub    string                 `mapstructure:"OAUTH_GITHUB"`
+	OAuthKeyLinkedin  string                 `mapstructure:"OAUTH_LINKEDIN"`
+	OAuthKeyMicrosoft string                 `mapstructure:"OAUTH_MICROSOFT"`
+	OAuthServerURL    string                 `mapstructure:"OAUTH_SERVER_URL"`
 
 	MQTopicDebeziumReplicateConfig       string `mapstructure:"MQ_TOPIC_DEBEZIUM_REPLICATE_CONFIG"`
 	MQTopicDebeziumUser                  string `mapstructure:"MQ_TOPIC_DEBEZIUM_USER"`
