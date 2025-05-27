@@ -52,6 +52,12 @@ type NoSQLConfig struct {
 	GroupUserCollection             string `mapstructure:"GROUP_USER_COLLECTION"`
 }
 
+type Cors struct {
+	AllowOrigins []string `mapstructure:"ALLOW_ORIGINS"`
+	AllowMethods []string `mapstructure:"ALLOW_METHODS"`
+	AllowHeaders []string `mapstructure:"ALLOW_HEADERS"`
+}
+
 type Config struct {
 	Environment            string           `mapstructure:"ENVIRONMENT"`
 	DBSource               string           `mapstructure:"DB_SOURCE"`
@@ -108,6 +114,9 @@ type Config struct {
 
 	S3Config      S3Config `mapstructure:"S3_CONFIG"`
 	TmpFolderPath string   `mapstructure:"TMP_FOLDER_PATH"`
+
+	// CORS configuration
+	BackEndCors Cors `mapstructure:"BACKEND_CORS"`
 }
 
 func LoadConfig(path string, config *Config) (err error) {
