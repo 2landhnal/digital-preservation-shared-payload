@@ -67,8 +67,9 @@ type Config struct {
 
 	AuthService            ServiceConfig `mapstructure:"AUTH_SERVICE"`
 	CoreService            ServiceConfig `mapstructure:"CORE_SERVICE"`
-	CollectSerivce         ServiceConfig `mapstructure:"COLLECT_SERVICE"`
-	NotifySerivce          ServiceConfig `mapstructure:"NOTIFY_SERVICE"`
+	CollectService         ServiceConfig `mapstructure:"COLLECT_SERVICE"`
+	NotifyService          ServiceConfig `mapstructure:"NOTIFY_SERVICE"`
+	MigrateService         ServiceConfig `mapstructure:"MIGRATE_SERVICE"`
 	ConsumeSerivce         ServiceConfig `mapstructure:"CONSUME_SERVICE"`
 	ScanVirussSerivce      ServiceConfig `mapstructure:"SCAN_VIRUSS_SERVICE"`
 	ExtractMetadataSerivce ServiceConfig `mapstructure:"EXTRACT_METADATA_SERVICE"`
