@@ -59,16 +59,20 @@ type Cors struct {
 }
 
 type Config struct {
-	Environment            string           `mapstructure:"ENVIRONMENT"`
-	DBSource               string           `mapstructure:"DB_SOURCE"`
-	MongoDBConfig          NoSQLConfig      `mapstructure:"MONGO_DB_CONFIG"`
-	HttpPort               int              `mapstructure:"HTTP_PORT"`
-	GrpcPort               int              `mapstructure:"GRPC_PORT"`
-	CollectSerivce         ServiceConfig    `mapstructure:"COLLECT_SERVICE"`
-	NotifySerivce          ServiceConfig    `mapstructure:"NOTIFY_SERVICE"`
-	ConsumeSerivce         ServiceConfig    `mapstructure:"CONSUME_SERVICE"`
-	ScanVirussSerivce      ServiceConfig    `mapstructure:"SCAN_VIRUSS_SERVICE"`
-	ExtractMetadataSerivce ServiceConfig    `mapstructure:"EXTRACT_METADATA_SERVICE"`
+	Environment   string      `mapstructure:"ENVIRONMENT"`
+	DBSource      string      `mapstructure:"DB_SOURCE"`
+	MongoDBConfig NoSQLConfig `mapstructure:"MONGO_DB_CONFIG"`
+	HttpPort      int         `mapstructure:"HTTP_PORT"`
+	GrpcPort      int         `mapstructure:"GRPC_PORT"`
+
+	AuthService            ServiceConfig `mapstructure:"AUTH_SERVICE"`
+	CoreService            ServiceConfig `mapstructure:"CORE_SERVICE"`
+	CollectSerivce         ServiceConfig `mapstructure:"COLLECT_SERVICE"`
+	NotifySerivce          ServiceConfig `mapstructure:"NOTIFY_SERVICE"`
+	ConsumeSerivce         ServiceConfig `mapstructure:"CONSUME_SERVICE"`
+	ScanVirussSerivce      ServiceConfig `mapstructure:"SCAN_VIRUSS_SERVICE"`
+	ExtractMetadataSerivce ServiceConfig `mapstructure:"EXTRACT_METADATA_SERVICE"`
+
 	TokenSymmetricKey      string           `mapstructure:"TOKEN_SYMMETRIC_KEY"`
 	AccessTokenDuration    time.Duration    `mapstructure:"ACCESS_TOKEN_DURATION"`
 	RefreshTokenDuration   time.Duration    `mapstructure:"REFRESH_TOKEN_DURATION"`
