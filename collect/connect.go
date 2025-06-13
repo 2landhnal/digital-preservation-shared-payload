@@ -10,12 +10,12 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 )
 
-type CollectServicer struct {
+type CollectServicerClient struct {
 	Config *util.Config
 	Client pb.CollectServiceClient
 }
 
-func NewCollectServicer(config *util.Config) (*CollectServicer, error) {
+func NewCollectServicerClient(config *util.Config) (*CollectServicerClient, error) {
 	logger := logger.NewFmtLogger()
 	// Connect to the gRPC server
 	conn, err := grpc.NewClient(fmt.Sprintf("%s:%d", config.CollectService.ServerAddress, config.CollectService.GRPCServerPort), grpc.WithTransportCredentials(insecure.NewCredentials()))
@@ -26,7 +26,7 @@ func NewCollectServicer(config *util.Config) (*CollectServicer, error) {
 	}
 
 	client := pb.NewCollectServiceClient(conn)
-	return &CollectServicer{
+	return &CollectServicerClient{
 		Config: config,
 		Client: client,
 	}, nil
