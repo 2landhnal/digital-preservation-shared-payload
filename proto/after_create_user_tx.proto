@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = "github.com/2landhnal/digital-preservation-shared-payload/pb";
+
+message AfterCreateUserTxRequest {
+  string userEmail = 1;
+}
+
+message AfterCreateUserTxResponse {
+  string message = 1;
+}
+
+
+
+

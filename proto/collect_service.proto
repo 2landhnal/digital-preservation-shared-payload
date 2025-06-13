@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package pb;
+
+import "tmp_object.proto";
+import "viruss_scan_result.proto";
+import "extract_metadata_result.proto";
+
+option go_package = "github.com/2landhnal/digital-preservation-shared-payload/pb";
+
+service CollectService {
+  rpc UpdateTmpObject (UpdateTmpObjectRequest) returns (UpdateTmpObjectResponse);
+  rpc CreateTmpObject (CreateTmpObjectRequest) returns (CreateTmpObjectResponse);
+  rpc CreateVirussScanResult (CreateVirussScanResultRequest) returns (CreateVirussScanResultResponse);
+  rpc CreateExtractMetadataResult (CreateExtractMetadataResultRequest) returns (CreateExtractMetadataResultResponse);
+}
+
+
+

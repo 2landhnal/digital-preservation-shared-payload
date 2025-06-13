@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package pb;
+
+import "user.proto";
+
+option go_package = "github.com/2landhnal/digital-preservation-shared-payload/pb";
+
+service AuthService {
+  rpc GetUser(GetUserRequest) returns (GetUserResponse);
+}
+
+
+

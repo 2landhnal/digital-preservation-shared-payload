@@ -28,6 +28,7 @@ type ServiceConfig struct {
 	ServerAddress  string `mapstructure:"SERVER_ADDRESS"`
 	HTTPServerPort int    `mapstructure:"HTTP_SERVER_PORT"`
 	GRPCServerPort int    `mapstructure:"GRPC_SERVER_PORT"`
+	DBSource       string `mapstructure:"DB_SOURCE"`
 }
 
 type NoSQLConfig struct {
@@ -60,13 +61,13 @@ type Cors struct {
 
 type Config struct {
 	Environment   string      `mapstructure:"ENVIRONMENT"`
-	DBSource      string      `mapstructure:"DB_SOURCE"`
 	MongoDBConfig NoSQLConfig `mapstructure:"MONGO_DB_CONFIG"`
 	HttpPort      int         `mapstructure:"HTTP_PORT"`
 	GrpcPort      int         `mapstructure:"GRPC_PORT"`
 
 	AuthService            ServiceConfig `mapstructure:"AUTH_SERVICE"`
 	CoreService            ServiceConfig `mapstructure:"CORE_SERVICE"`
+	ACLService             ServiceConfig `mapstructure:"ACL_SERVICE"`
 	CollectService         ServiceConfig `mapstructure:"COLLECT_SERVICE"`
 	NotifyService          ServiceConfig `mapstructure:"NOTIFY_SERVICE"`
 	MigrateService         ServiceConfig `mapstructure:"MIGRATE_SERVICE"`
@@ -82,7 +83,6 @@ type Config struct {
 	EmailSenderName        string           `mapstructure:"EMAIL_SENDER_NAME"`
 	EmailSenderAddress     string           `mapstructure:"EMAIL_SENDER_ADDRESS"`
 	EmailSenderPassword    string           `mapstructure:"EMAIL_SENDER_PASSWORD"`
-	AllowedOrigins         []string         `mapstructure:"ALLOWED_ORIGINS"`
 	MQAddress              []string         `mapstructure:"MQ_ADDRESS"`
 	MQTopics               map[string]Topic `mapstructure:"MQ_TOPICS"`
 	MQTopicVerifyEmail     string           `mapstructure:"MQ_TOPIC_VERIFY_EMAIL"`
@@ -122,6 +122,9 @@ type Config struct {
 
 	// CORS configuration
 	BackEndCors Cors `mapstructure:"BACKEND_CORS"`
+
+	// Tracing
+	TraceCollectorAddress string `mapstructure:"TRACE_COLLECTOR_ADDRESS"`
 }
 
 func LoadConfig(path string, config *Config) (err error) {

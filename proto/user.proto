@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package pb;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/2landhnal/digital-preservation-shared-payload/pb";
+
+
+message GetUserRequest {
+  string email = 1;
+}
+
+message GetUserResponse {
+  string email = 1;
+  optional string fullname = 2;
+  bool isEmailVerified = 3;
+  google.protobuf.Timestamp passwordChangedAt = 4;
+  string roleType = 5;
+  string accountType = 6;
+  google.protobuf.Timestamp createdAt = 7;
+  optional string avatarUrl = 8;
+}
+
+
+
+

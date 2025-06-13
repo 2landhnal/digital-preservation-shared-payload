@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = "github.com/2landhnal/digital-preservation-shared-payload/pb";
+
+message UploadFileRequest {
+  string userEmail = 1;
+  string originalName = 2;
+  int64 size = 3;
+  string format = 4;
+  string formatVersion = 5;
+  string storage = 6;
+  string storageID = 7;
+  bytes verifyKey = 8;
+  bytes signature = 9;
+  string signAlg = 10;
+  int64 folderID = 11;
+  string name = 12;
+  string category = 13;
+  int32 version = 14;
+}
+
+message UploadFileResponse {
+  string message = 1;
+}
+
+
+
+

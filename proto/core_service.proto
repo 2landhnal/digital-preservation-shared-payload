@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package pb;
+
+import "upload_file.proto";
+import "after_create_user_tx.proto";
+
+option go_package = "github.com/2landhnal/digital-preservation-shared-payload/pb";
+
+service CoreService {
+  rpc UploadFile (UploadFileRequest) returns (UploadFileResponse);
+  rpc AfterCreateUserTx (AfterCreateUserTxRequest) returns (AfterCreateUserTxResponse);
+}
+
+
+

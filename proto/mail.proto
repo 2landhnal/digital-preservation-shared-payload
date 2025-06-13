@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = "github.com/2landhnal/digital-preservation-shared-payload/pb";
+
+service Notifier {
+  rpc SendEmail (SendMailRequest) returns (SendMailResponse);
+}
+
+message SendMailRequest {
+  string subject = 1;
+  string content = 2;
+  repeated string to = 3;
+  repeated string cc = 4;
+  repeated string bcc = 5;
+  repeated string attachFiles = 6;
+}
+
+message SendMailResponse {
+  string message = 1;
+}
+
+
+
+
