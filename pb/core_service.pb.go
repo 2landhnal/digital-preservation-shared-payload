@@ -24,25 +24,30 @@ var File_core_service_proto protoreflect.FileDescriptor
 
 const file_core_service_proto_rawDesc = "" +
 	"\n" +
-	"\x12core_service.proto\x12\x02pb\x1a\x11upload_file.proto\x1a\x1aafter_create_user_tx.proto2\x9c\x01\n" +
+	"\x12core_service.proto\x12\x02pb\x1a\x11upload_file.proto\x1a\x1aafter_create_user_tx.proto\x1a\x17get_presigned_url.proto2\xe8\x01\n" +
 	"\vCoreService\x12;\n" +
 	"\n" +
 	"UploadFile\x12\x15.pb.UploadFileRequest\x1a\x16.pb.UploadFileResponse\x12P\n" +
-	"\x11AfterCreateUserTx\x12\x1c.pb.AfterCreateUserTxRequest\x1a\x1d.pb.AfterCreateUserTxResponseB=Z;github.com/2landhnal/digital-preservation-shared-payload/pbb\x06proto3"
+	"\x11AfterCreateUserTx\x12\x1c.pb.AfterCreateUserTxRequest\x1a\x1d.pb.AfterCreateUserTxResponse\x12J\n" +
+	"\x0fGetPresignedUrl\x12\x1a.pb.GetPresignedUrlRequest\x1a\x1b.pb.GetPresignedUrlResponseB=Z;github.com/2landhnal/digital-preservation-shared-payload/pbb\x06proto3"
 
 var file_core_service_proto_goTypes = []any{
 	(*UploadFileRequest)(nil),         // 0: pb.UploadFileRequest
 	(*AfterCreateUserTxRequest)(nil),  // 1: pb.AfterCreateUserTxRequest
-	(*UploadFileResponse)(nil),        // 2: pb.UploadFileResponse
-	(*AfterCreateUserTxResponse)(nil), // 3: pb.AfterCreateUserTxResponse
+	(*GetPresignedUrlRequest)(nil),    // 2: pb.GetPresignedUrlRequest
+	(*UploadFileResponse)(nil),        // 3: pb.UploadFileResponse
+	(*AfterCreateUserTxResponse)(nil), // 4: pb.AfterCreateUserTxResponse
+	(*GetPresignedUrlResponse)(nil),   // 5: pb.GetPresignedUrlResponse
 }
 var file_core_service_proto_depIdxs = []int32{
 	0, // 0: pb.CoreService.UploadFile:input_type -> pb.UploadFileRequest
 	1, // 1: pb.CoreService.AfterCreateUserTx:input_type -> pb.AfterCreateUserTxRequest
-	2, // 2: pb.CoreService.UploadFile:output_type -> pb.UploadFileResponse
-	3, // 3: pb.CoreService.AfterCreateUserTx:output_type -> pb.AfterCreateUserTxResponse
-	2, // [2:4] is the sub-list for method output_type
-	0, // [0:2] is the sub-list for method input_type
+	2, // 2: pb.CoreService.GetPresignedUrl:input_type -> pb.GetPresignedUrlRequest
+	3, // 3: pb.CoreService.UploadFile:output_type -> pb.UploadFileResponse
+	4, // 4: pb.CoreService.AfterCreateUserTx:output_type -> pb.AfterCreateUserTxResponse
+	5, // 5: pb.CoreService.GetPresignedUrl:output_type -> pb.GetPresignedUrlResponse
+	3, // [3:6] is the sub-list for method output_type
+	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -55,6 +60,7 @@ func file_core_service_proto_init() {
 	}
 	file_upload_file_proto_init()
 	file_after_create_user_tx_proto_init()
+	file_get_presigned_url_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

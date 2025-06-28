@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = "github.com/2landhnal/digital-preservation-shared-payload/pb";
+
+message GetPresignedUrlRequest {
+  string storageId = 1;
+  
+}
+
+message GetPresignedUrlResponse {
+  string url = 1;
+}
+
+
+
+

@@ -14,6 +14,7 @@ func ExtractUser(ctx *gin.Context) {
 	if userEmail == "" {
 		ctx.JSON(http.StatusUnauthorized, gin.H{"error": "Unauthorized"})
 		ctx.Abort()
+		return
 	}
 	ctx.Set(util.HeaderUserEmail, userEmail)
 
@@ -21,6 +22,7 @@ func ExtractUser(ctx *gin.Context) {
 	if userRole == "" {
 		ctx.JSON(http.StatusUnauthorized, gin.H{"error": "Unauthorized"})
 		ctx.Abort()
+		return
 	}
 	ctx.Set(util.HeaderUserRole, userRole)
 }

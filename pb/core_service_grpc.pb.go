@@ -21,6 +21,7 @@ const _ = grpc.SupportPackageIsVersion9
 const (
 	CoreService_UploadFile_FullMethodName        = "/pb.CoreService/UploadFile"
 	CoreService_AfterCreateUserTx_FullMethodName = "/pb.CoreService/AfterCreateUserTx"
+	CoreService_GetPresignedUrl_FullMethodName   = "/pb.CoreService/GetPresignedUrl"
 )
 
 // CoreServiceClient is the client API for CoreService service.
@@ -29,6 +30,7 @@ const (
 type CoreServiceClient interface {
 	UploadFile(ctx context.Context, in *UploadFileRequest, opts ...grpc.CallOption) (*UploadFileResponse, error)
 	AfterCreateUserTx(ctx context.Context, in *AfterCreateUserTxRequest, opts ...grpc.CallOption) (*AfterCreateUserTxResponse, error)
+	GetPresignedUrl(ctx context.Context, in *GetPresignedUrlRequest, opts ...grpc.CallOption) (*GetPresignedUrlResponse, error)
 }
 
 type coreServiceClient struct {
@@ -59,12 +61,23 @@ func (c *coreServiceClient) AfterCreateUserTx(ctx context.Context, in *AfterCrea
 	return out, nil
 }
 
+func (c *coreServiceClient) GetPresignedUrl(ctx context.Context, in *GetPresignedUrlRequest, opts ...grpc.CallOption) (*GetPresignedUrlResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPresignedUrlResponse)
+	err := c.cc.Invoke(ctx, CoreService_GetPresignedUrl_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CoreServiceServer is the server API for CoreService service.
 // All implementations must embed UnimplementedCoreServiceServer
 // for forward compatibility.
 type CoreServiceServer interface {
 	UploadFile(context.Context, *UploadFileRequest) (*UploadFileResponse, error)
 	AfterCreateUserTx(context.Context, *AfterCreateUserTxRequest) (*AfterCreateUserTxResponse, error)
+	GetPresignedUrl(context.Context, *GetPresignedUrlRequest) (*GetPresignedUrlResponse, error)
 	mustEmbedUnimplementedCoreServiceServer()
 }
 
@@ -80,6 +93,9 @@ func (UnimplementedCoreServiceServer) UploadFile(context.Context, *UploadFileReq
 }
 func (UnimplementedCoreServiceServer) AfterCreateUserTx(context.Context, *AfterCreateUserTxRequest) (*AfterCreateUserTxResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AfterCreateUserTx not implemented")
+}
+func (UnimplementedCoreServiceServer) GetPresignedUrl(context.Context, *GetPresignedUrlRequest) (*GetPresignedUrlResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPresignedUrl not implemented")
 }
 func (UnimplementedCoreServiceServer) mustEmbedUnimplementedCoreServiceServer() {}
 func (UnimplementedCoreServiceServer) testEmbeddedByValue()                     {}
@@ -138,6 +154,24 @@ func _CoreService_AfterCreateUserTx_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CoreService_GetPresignedUrl_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPresignedUrlRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CoreServiceServer).GetPresignedUrl(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CoreService_GetPresignedUrl_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CoreServiceServer).GetPresignedUrl(ctx, req.(*GetPresignedUrlRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // CoreService_ServiceDesc is the grpc.ServiceDesc for CoreService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -152,6 +186,10 @@ var CoreService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "AfterCreateUserTx",
 			Handler:    _CoreService_AfterCreateUserTx_Handler,
+		},
+		{
+			MethodName: "GetPresignedUrl",
+			Handler:    _CoreService_GetPresignedUrl_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
