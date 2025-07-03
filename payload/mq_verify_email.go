@@ -9,11 +9,16 @@ type PayloadVerifyEmail struct {
 	Email string `json:"email"`
 }
 
-// Payload step upload file
-type PayloadStepUploadFile struct {
-	ObjectId      uuid.UUID `json:"object_id" binding:"required"`
-	UploaderEmail string    `json:"uploader_email" binding:"required,email"`
-	FolderId      int64     `json:"folder_id" binding:"required"`
-	OriginalName  string    `json:"original_name" binding:"required"`
-	StoragePath   string    `json:"storage_path" binding:"required"`
+type PipelineStep struct {
+	Topic  string   `json:"topic" binding:"required"`
+	Groups []string `json:"groups" binding:"required"`
+}
+
+type UpLoadFilePayload struct {
+	ObjectId      uuid.UUID      `json:"object_id" binding:"required"`
+	UploaderEmail string         `json:"uploader_email" binding:"required,email"`
+	FolderId      int64          `json:"folder_id" binding:"required"`
+	OriginalName  string         `json:"original_name" binding:"required"`
+	StoragePath   string         `json:"storage_path" binding:"required"`
+	Pipeline      []PipelineStep `json:"pipeline" binding:"required"` // Pipeline steps to process the file
 }

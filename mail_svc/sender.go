@@ -6,6 +6,7 @@ import (
 	"github.com/2landhnal/digital-preservation-shared-payload/logger"
 	"github.com/2landhnal/digital-preservation-shared-payload/pb"
 	"github.com/2landhnal/digital-preservation-shared-payload/util"
+	"go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
@@ -23,7 +24,11 @@ type GmailSender struct {
 func NewGmailSender(config *util.Config) (*GmailSender, error) {
 	logger := logger.NewFmtLogger()
 	// Connect to the gRPC server
-	conn, err := grpc.NewClient(fmt.Sprintf("%s:%d", config.NotifyService.ServerAddress, config.NotifyService.GRPCServerPort), grpc.WithTransportCredentials(insecure.NewCredentials()))
+	conn, err := grpc.NewClient(
+		fmt.Sprintf("%s:%d", config.NotifyService.ServerAddress, config.NotifyService.GRPCServerPort),
+		grpc.WithTransportCredentials(insecure.NewCredentials()),
+		grpc.WithStatsHandler(otelgrpc.NewClientHandler()),
+	)
 	if err != nil {
 		return nil, fmt.Errorf("could not connect to gRPC server: %v", err)
 	} else {
