@@ -27,7 +27,7 @@ const file_migrate_service_proto_rawDesc = "" +
 	"\x15migrate_service.proto\x12\x02pb\x1a\x15get_file_format.proto\x1a\x18is_file_acceptable.proto2\xc0\x01\n" +
 	"\x0eMigrateService\x12D\n" +
 	"\rGetFileFormat\x12\x18.pb.GetFileFormatRequest\x1a\x19.pb.GetFileFormatResponse\x12h\n" +
-	"\x19CheckFileFormatAcceptable\x12$.pb.CheckFileFormatAcceptableRequest\x1a%.pb.CheckFileFormatAcceptableResponseB6Z4github.com/2landhnal/preservelab-migrate/internal/pbb\x06proto3"
+	"\x19CheckFileFormatAcceptable\x12$.pb.CheckFileFormatAcceptableRequest\x1a%.pb.CheckFileFormatAcceptableResponseB=Z;github.com/2landhnal/digital-preservation-shared-payload/pbb\x06proto3"
 
 var file_migrate_service_proto_goTypes = []any{
 	(*GetFileFormatRequest)(nil),              // 0: pb.GetFileFormatRequest

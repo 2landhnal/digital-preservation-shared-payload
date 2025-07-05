@@ -128,7 +128,7 @@ const file_is_file_acceptable_proto_rawDesc = "" +
 	"!CheckFileFormatAcceptableResponse\x12\x1e\n" +
 	"\n" +
 	"acceptable\x18\x01 \x01(\bR\n" +
-	"acceptableB6Z4github.com/2landhnal/preservelab-migrate/internal/pbb\x06proto3"
+	"acceptableB=Z;github.com/2landhnal/digital-preservation-shared-payload/pbb\x06proto3"
 
 var (
 	file_is_file_acceptable_proto_rawDescOnce sync.Once

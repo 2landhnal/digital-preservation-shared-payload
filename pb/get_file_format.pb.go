@@ -172,7 +172,7 @@ const file_get_file_format_proto_rawDesc = "" +
 	"\bisStable\x18\x03 \x01(\bR\bisStable\x12 \n" +
 	"\vstablePoint\x18\x04 \x01(\x05R\vstablePoint\x128\n" +
 	"\tcreatedAt\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x128\n" +
-	"\tupdatedAt\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAtB6Z4github.com/2landhnal/preservelab-migrate/internal/pbb\x06proto3"
+	"\tupdatedAt\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAtB=Z;github.com/2landhnal/digital-preservation-shared-payload/pbb\x06proto3"
 
 var (
 	file_get_file_format_proto_rawDescOnce sync.Once
