@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package pb;
+
+// import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/2landhnal/preservelab-migrate/internal/pb";
+
+
+message CheckFileFormatAcceptableRequest {
+	string extension = 1;
+	string version = 2;
+}
+
+message CheckFileFormatAcceptableResponse {
+  	bool acceptable = 1;
+}
+

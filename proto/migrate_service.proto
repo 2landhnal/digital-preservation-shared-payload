@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package pb;
+
+import "get_file_format.proto";
+import "is_file_acceptable.proto";
+
+option go_package = "github.com/2landhnal/preservelab-migrate/internal/pb";
+
+service MigrateService {
+    rpc GetFileFormat(GetFileFormatRequest) returns (GetFileFormatResponse);
+    rpc CheckFileFormatAcceptable(CheckFileFormatAcceptableRequest) returns (CheckFileFormatAcceptableResponse);
+}
+
+
+
